@@ -63,7 +63,7 @@
         </div>
       </section>
 
-      <div class="album py-5 bg-light">
+      <div class="album py-5">
         <div class="container">
         <h2 style="text-align: center;">MENU</h2> 
         <br>

@@ -90,7 +90,7 @@
        </form>
        <br><br><br>
              
-          <table class="table table-striped table-bordered" align="center">
+          <table class="table table-striped table-bordered table-light" align="center">
                 <tr>
                   <td>Nama</td>
                   <td>Harga</td>

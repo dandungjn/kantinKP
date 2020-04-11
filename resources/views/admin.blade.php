@@ -5,7 +5,7 @@
   Hi Admin !
 </h1>
     <div class="container">
-       <div class="album py-5 bg-light">
+       <div class="album py-5">
         <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -39,7 +39,7 @@
               <div class="card mb-4 box-shadow"  style="width: 400;height:250px">
                 <div class="card-body">
                   <p class="card-text" align="center"><b>Laporan</b></p>
-                  <p class="card-text">Disini admin bisa melihat seluruh laporan transaksi</p>
+                  <p class="card-text">Disini admin bisa melihat seluruh barang barang yang telah dibeli dan bisa melihat keuntungan total dan keuntungan per hari !</p>
                   <br><br>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">

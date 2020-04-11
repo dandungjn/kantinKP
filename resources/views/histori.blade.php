@@ -11,7 +11,7 @@
             </div>
        </form>
        <br>
-       <table class="table table-striped table-bordered" align="center">
+       <table class="table table-striped table-bordered table-light" align="center">
                 <tr>
                   <td>ID Transaksi</td>
                   <td>Total Harga</td>

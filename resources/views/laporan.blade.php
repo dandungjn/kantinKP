@@ -11,7 +11,7 @@
             </div>
        </form>
        <br>
-       <table class="table table-striped table-bordered" align="center">
+       <table class="table table-striped table-bordered table-light" align="center">
                 <tr>
                   <td>ID Transaksi</td>
                   <td>Nama Makanan</td>
@@ -32,7 +32,7 @@
                 @endforeach
           </table>
           <br>
-          <h5 style="color: #eb8322;"><b>KEUNTUNGAN : Rp. {{$subtotal}}</b></h5>
+          <h5 style="color: black;" align="center"><b>KEUNTUNGAN : Rp. {{$subtotal}}</b></h5>
 
 
 </div>

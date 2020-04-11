@@ -103,7 +103,7 @@
       
 
 </head>
-<body>
+<body style="background-color: #fff3e8">
     <div id="app">
         <header>
                 <div class="navbar navbar-expand-lg navbar-light bg-white navbar-fixed-top">
