@@ -36,9 +36,11 @@ Route::get('/keranjang/delete/{id}', 'keranjangController@delete')->name('keranj
 Route::get('/admin', 'adminController@index')->name('admin.index');
 Route::get('/historitransaksi', 'adminController@historitransaksiview')->name('historitransaksi.index');
 Route::get('/historitransaksi/{id}', 'adminController@infokeranjang')->name('historitransaksi.info');
+Route::get('/historitransaksi/selesai/{id}', 'adminController@selesaikeranjang')->name('historitransaksi.selesai');
+Route::get('/profiletransaksi/{id}', 'profileController@infokeranjangprofile')->name('historitransaksiprofile.info');
 Route::get('/laporan', 'adminController@laporanview')->name('laporan.index');
 Route::get('/success', 'transaksiController@terimakasih')->name('terimakasih.index');
-
+Route::get('/profile', 'profileController@index')->name('profile.index');
 // POST
 
 Route::post('/masukankeranjang', 'keranjangController@store')->name('keranjang.store');		
@@ -46,4 +48,5 @@ Route::post('/processing', 'transaksiController@store')->name('transaksi.store')
 Route::post('/adding', 'daftarMakananController@store')->name('daftarMakanan.store');
 Route::post('/update/{id}', 'daftarMakananController@update')->name('daftarMakanan.update');
 Route::post('/keranjang/update/{id}', 'keranjangController@update')->name('keranjang.update');
+
 });

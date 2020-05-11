@@ -17,6 +17,7 @@
                   <td>Total Harga</td>
                   <td>Dibayar</td>
                   <td>Kembalian</td>
+                  <td>Diambil</td>
                   <td>Tanggal Transaksi</td>
                   <td>Detail Transaksi</td>
                 </tr>
@@ -26,9 +27,11 @@
                   <td>Rp. {{ $transaksi->total_harga }}</td>
                   <td>Rp. {{ $transaksi->dibayar }}</td>
                   <td>Rp. {{ $transaksi->kembalian }}</td>
-                  <td> {{ $transaksi->created_at }}</td>
+                  <td>{{ ($transaksi->diambil == '1') ? 'Sudah Diambil':'Belum diambil' }}</td>
+                  <td> {{ date('d F Y h:i:s', strtotime($transaksi->created_at)) }}</td>
                   <td align="center">
                        <a href="{{ route('historitransaksi.info', $transaksi->id) }}"  class="btn btn-warning"><b>Info</b></a>
+                       <a href="{{ route('historitransaksi.selesai', $transaksi->id) }}"  class="btn btn-warning"><b>Selesai</b></a>
                   </td>
                 </tr>
                 @endforeach
@@ -36,7 +39,6 @@
 
 
 </div>
-
 
 
 

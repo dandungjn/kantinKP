@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\daftarMakanan;
-use App\keranjang;
+use App\User;
 use App\transaksi;
 use App\detailTransaksi;
-use redirect; 
+use redirect;
+use Auth;
 
-class adminController extends Controller
+class profileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,54 +18,21 @@ class adminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $user = Auth::user();
+        $transaksi = transaksi::where('user_id','LIKE','%'.$user->id.'%')->get();    
+
+        return view('profile',compact('transaksi'));
+        
     }
 
 
-    public function historitransaksiview(Request $request)
-    {
-        if($request->has('cari')){
-            $transaksi = transaksi::where('id','LIKE','%'.$request->cari.'%')->get();
-        }else{
-        $transaksi = transaksi::all();    
-        }
-        return view('histori',compact('transaksi'));
-    
-    }
-
-     public function laporanview(Request $request)
-    {
-        if($request->has('cari')){
-            $detail_transaksi = detailTransaksi::where('created_at','LIKE','%'.$request->cari.'%')->get();
-            $subtotal = $detail_transaksi->sum('total_harga');
-        }else{
-        $detail_transaksi = detailTransaksi::all();          
-        $subtotal = $detail_transaksi->sum('total_harga');
-        }
-        return view('laporan',compact('detail_transaksi','subtotal'));
-    
-    }
-
-
-    public function infokeranjang($id)
+     public function infokeranjangprofile($id)
     {
         $info_transaksi = detailTransaksi::where('id_transaksi',$id)->get();
 
-        return view('historiinfo',compact('info_transaksi'));
+        return view('profilekeranjang',compact('info_transaksi'));
         
     }
-
-    public function selesaikeranjang($id)
-    {
-        $updatetransaksi = transaksi::where('id',$id)->update([
-            'diambil' => '1',
-        ]);
-        
-        $transaksi = transaksi::all();    
-        return view('histori',compact('transaksi'));
-        
-    }
-
 
     /**
      * Show the form for creating a new resource.

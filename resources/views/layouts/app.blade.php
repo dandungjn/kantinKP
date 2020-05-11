@@ -128,7 +128,7 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         
                     </div>
-                    <a href="#" class="mr-3"><i class="fa fa-user fa-md text-dark"></i> <span style="color: #eb8322;">{{ Auth::user()->name }}</span></a>
+                    <a href="/profile" class="mr-3"><i class="fa fa-user fa-md text-dark"></i> <span style="color: #eb8322;">{{ Auth::user()->name }}</span></a>
                     |
                     <a href="{{route('keranjang.index')}}" class="ml-3 mr-3"><i class="fa fa-shopping-cart fa-md text-warning"></i></a>
                     |

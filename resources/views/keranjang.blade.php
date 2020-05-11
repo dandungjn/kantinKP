@@ -84,6 +84,7 @@
         <div class="form-group">
             <label for="exampleFormControlInput1"><b>Total Rp. {{ $subtotal }}</b></label>
             <input type="hidden" name="total_harga" value="{{ $subtotal }}" id="subtotal">
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
       </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Dibayar</label>

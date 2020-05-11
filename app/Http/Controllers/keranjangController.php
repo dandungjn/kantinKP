@@ -6,6 +6,7 @@ use App\daftarMakanan;
 use App\keranjang;
 use redirect;
 use Illuminate\Http\Request;
+use Auth;
 
 class keranjangController extends Controller
 {
@@ -16,8 +17,9 @@ class keranjangController extends Controller
      */
     public function index()
     {
-        $keranjang = keranjang::all();
-        $subtotal = keranjang::sum('total_harga');
+        $user = Auth::user(); 
+        $keranjang = keranjang::where('user_id','LIKE','%'.$user->id.'%')->get();
+        $subtotal = $keranjang->sum('total_harga');
         return view('keranjang',compact('keranjang','subtotal'));
     
     }
@@ -42,6 +44,7 @@ class keranjangController extends Controller
     {
         $total = $request->harga_makanan * $request->jumlah_makanan;
          keranjang::create([
+            'user_id' => request('user_id'),
             'id_makanan' => request('id_makanan'),
             'nama_makanan' => request('nama_makanan'),
             'harga_makanan'=> request('harga_makanan'),

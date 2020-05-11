@@ -7,7 +7,8 @@ use App\daftarMakanan;
 use App\keranjang;
 use App\transaksi;
 use App\detailTransaksi;
-use redirect; 
+use redirect;
+use Auth;
 
 class transaksiController extends Controller
 {
@@ -46,15 +47,20 @@ class transaksiController extends Controller
     {  
 
         $transaksi = transaksi::create([
+            'user_id' => request('user_id'),
             'total_harga' => request('total_harga'),
             'dibayar' => request('dibayar'),
-            'kembalian'=> request('kembalian'),    
+            'kembalian'=> request('kembalian'),
+            'diambil' => '0',    
      ]);
-         $keranjang = keranjang::all();
+        
+         $user = Auth::user(); 
+         $keranjang = keranjang::where('user_id','LIKE','%'.$user->id.'%')->get();
 
          foreach($keranjang as $data){
             detailTransaksi::create([
                 'id_transaksi' =>$transaksi->id,
+                'user_id' =>$transaksi->user_id,
                 'nama_makanan' => $data->nama_makanan,
                 'jumlah_makanan'=>$data->jumlah_makanan,
                 'harga_makanan'=>$data->harga_makanan,

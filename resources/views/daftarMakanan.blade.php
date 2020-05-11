@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <main role="main">
+  <main role="main"> 
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -102,6 +102,7 @@
                                 <input type="text" class="form-control" name="nama_makanan" readonly="true" value="{{$daftar_makanan->nama_makanan}}">
                                 <input type="hidden" class="form-control" name="id_makanan" value="{{$daftar_makanan->id}}">
                                 <input type="hidden" name="stok_makanan" value="{{$daftar_makanan->stok_makanan}}">
+                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                               </div>
                               <div class="form-group">
                                 <label for="exampleFormControlInput1">Harga Makanan :</label>
